@@ -1,4 +1,4 @@
-COPY --from=ghcr.io/projectbluefin/common:latest /system_files /
+COPY --from=ghcr.io/projectbluefin/common:latest /system_files /files
 COPY cosign.pub /files/etc/pki/containers/zirconium.pub
 
 FROM quay.io/pocketblue/oneplus-sdm845-gnome-desktop:43
