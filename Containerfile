@@ -6,4 +6,7 @@ COPY cosign.pub /files/etc/pki/containers/zirconium.pub
 
 FROM quay.io/pocketblue/oneplus-sdm845-gnome-desktop
 
+RUN dnf -y install bootc
+
+
 RUN rm -rf /var/* && mkdir /var/tmp && bootc container lint
