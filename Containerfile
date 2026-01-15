@@ -1,7 +1,8 @@
 FROM ghcr.io/projectbluefin/common:latest AS bluefin-common
 
 # Copy all system files
-COPY --from=ghcr.io/ublue-os/brew:latest /system_files /files
+COPY --from=bluefin-common /system_files/etc /etc
+COPY --from=bluefin-common /system_files/usr /usr
 COPY cosign.pub /files/etc/pki/containers/zirconium.pub
 
 FROM quay.io/pocketblue/oneplus-sdm845-gnome-desktop:43
