@@ -1,12 +1,7 @@
-FROM ghcr.io/projectbluefin/common:latest AS bluefin-common
-
-# Copy all system files
-COPY --from=bluefin-common /system_files/etc /etc
-COPY --from=bluefin-common /system_files/usr /usr
+COPY --from=ghcr.io/projectbluefin/common:latest /system_files /
 COPY cosign.pub /files/etc/pki/containers/zirconium.pub
 
 FROM quay.io/pocketblue/oneplus-sdm845-gnome-desktop:43
 
-RUN dnf -y upgrade bootc
-
 RUN rm -rf /var/* && mkdir /var/tmp && bootc container lint
+
