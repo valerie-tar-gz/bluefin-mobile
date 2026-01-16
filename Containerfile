@@ -1,3 +1,5 @@
+FROM scratch AS ctx
+
 COPY --from=ghcr.io/projectbluefin/common:latest /system_files /files
 COPY cosign.pub /files/etc/pki/containers/zirconium.pub
 
